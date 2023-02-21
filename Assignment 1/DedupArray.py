@@ -1,7 +1,11 @@
 # Given a sorted array of non-negative integers, modify the array by removing duplicates so each element only appears once. If arrays are static (aka, not dynamic/resizable) in your language of choice, the remaining elements should appear in the left-hand side of the array and the extra space in the right-hand side should be padded with -1s.
 
-# Approach: Reset catchup two-pointer method; right pointer advances if contiguous integers are not equal
-# If they are equal, delete the list integer value and adjust length of list
+# Approach: Reset catchup two-pointer method
+# 1. Right pointer advances if contiguous integers are not equal, until they are both equal
+# 2. If they are equal, delete index value at right pointer & update current length of list
+
+# Time complexity: O(n)
+# Space complexity: O(1)
 
 
 def dedup(a):
@@ -23,4 +27,4 @@ def main():
 
 
 main()
-# Time taken: ~16 minutes
+# Time taken: ~20 minutes

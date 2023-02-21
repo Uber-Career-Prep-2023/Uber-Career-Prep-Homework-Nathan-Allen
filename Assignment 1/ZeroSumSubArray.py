@@ -1,5 +1,10 @@
 # Given an array of integers, count the number of subarrays that sum to zero.
 # Approach - One-directional running computation/total paired with hashing sums
+# 1.
+# 2.
+# 3. 
+# 4. 
+
 # Time complexity: O(N)
 # Space complexity: O(1)
 

@@ -1,5 +1,12 @@
 # Given a string, reverse the order of the vowels in the string.
+
 # Approach: Forward-backward two pointer with helper function to verify vowels
+# 1. Define helper function (optional) to test for vowel characters (case-blind)
+# 2. Initialize list of characters from given string argument; left, right pointer to begin, end of list
+# 3. If both vowels, swap characters and advance both pointers
+# 4. If vowel and consonant, advance pointer with consonant
+# 5. Else, advance both pointers
+
 # Time complexity: O(N)
 # Space complexity: O(N)
 
@@ -46,4 +53,4 @@ def main():
 
 
 main()
-# 25 minutes
+# ~24 minutes
