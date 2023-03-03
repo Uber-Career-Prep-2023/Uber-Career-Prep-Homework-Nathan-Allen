@@ -1,9 +1,10 @@
 # Given an array of integers and an integer, k, find the maximum mean of a subarray of size k.
 
 # Approach: Fixed-size sliding window
-# 1. Initialize left, right pointers to be at start of array, k - 1 positions from left
+# 1. Initialize left, right pointers to be at start of array, k - 1 positions from left respectively
 # 2. Calculate sum of current window [l:r + 1] & obtain max value; store in return value
 # 3. Iterate entire array, calculating & comparing subarray sums of size k
+# 4. Return max mean
 
 # Time complexity - O(n) n-> n being the length of the array
 # Space complexity - O(1) -> no additional memory allocation

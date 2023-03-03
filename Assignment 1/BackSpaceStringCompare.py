@@ -1,7 +1,11 @@
 # Given two strings representing series of keystrokes, determine whether the resulting text is the same. Backspaces are represented by the '#' character so "x#" results in the empty string ("").
 
 # Approach - Stack implementation of strings, string comparison to validate similarity
-# 1. 
+# 1. Two arrays to store characters from each string
+# 2. Iterate through each string, if character is not a backspace, append to array
+# 3. If character is a backspace, pop last element from array
+# 4. Compare both arrays for equality
+
 # Time complexity: O(n)
 # Space complexity: O(n)
 

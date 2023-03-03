@@ -1,7 +1,13 @@
 # Given an array of integers, count the number of subarrays that sum to zero.
 # Approach - One-directional running computation/total paired with hashing sums
+# 1. Initialize a set to store sums
+# 2. Initialize a running total to 0
+# 3. Iterate through array, adding each element to the running total
+# 4. If the running total is in the set, increment count
+# 5. Else, add the running total to the set
+# 6. Return count
 
-# Time complexity: O(N)
+# Time complexity: O(N) - N being the length of the array
 # Space complexity: O(1)
 
 

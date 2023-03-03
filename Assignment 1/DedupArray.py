@@ -3,6 +3,7 @@
 # Approach: Reset catchup two-pointer method
 # 1. Right pointer advances if contiguous integers are not equal, until they are both equal
 # 2. If they are equal, delete index value at right pointer & update current length of list
+# 3. If they are not equal, increment left pointer & repeat
 
 # Time complexity: O(n)
 # Space complexity: O(1)
