@@ -1,6 +1,11 @@
 # Two strings are considered to be “k-anagrams” if they can be made into anagrams by changing at most k characters in one of the strings. Given two strings and an integer k, determine if they are k-anagrams.
-
 # Approach: Hashing elements
+# 1. Create a dictionary to store the frequency of characters in the first string
+# 2. Iterate through the second string, if the character exists in the dictionary, decrement the frequency
+# 3. If the character does not exist in the dictionary, decrement k
+# 4. If k is less than 0, return False
+# 5. Return True
+
 # Time complexity: O(n)
 # Space complexity: O(n)
 
@@ -20,8 +25,7 @@ def isKAnagram(left, right, k):
     else:
       k -= 1
 
-  valid = sum(comp.values())
-  return k >= valid or k == 0
+  return k >= 0
 
 
 def main():
@@ -34,4 +38,4 @@ def main():
 
 main()
 
-# Time taken: ~27 minutes
+# Time taken: ~25 minutes
