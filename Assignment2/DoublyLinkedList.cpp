@@ -134,7 +134,8 @@ node_t *deleteNode(node_t *head, node_t *loc) {
   return head;
 }
 
-// Time complexity: 
+// Time complexity: O(N) - traverse list of N nodes and increment count until
+// cur == nullptr
 int length(node_t *head) {
   if (head == nullptr) {
     return 0;
@@ -149,7 +150,8 @@ int length(node_t *head) {
   return count;
 }
 
-// Time complexity: 
+// Time complexity: O(N) - traverse list of N nodes only once, modifying
+// pointers to nodes at each iteration
 node_t *reverseIterative(node_t *head) {
   if (head == nullptr) {
     return nullptr;
