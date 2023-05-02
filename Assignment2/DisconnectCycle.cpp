@@ -4,8 +4,9 @@
 using namespace std;
 
 // Technique: Hash the linked list nodes
+// Time complexity: O(N)
+// Time taken: 20 minutes
 
-// Time taken:
 
 void DisconnectCycle(node_t *head)
 {
