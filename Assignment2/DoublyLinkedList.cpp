@@ -1,9 +1,10 @@
+#include "DoublyLinkedList.hpp"
 #include <iostream>
 using namespace std;
 
 
 // Time complexity: O(1) - reference to head already exist, constant insertion
-node_t *insertAtFront(node_t *head, int val) {
+node_t* DoublyLinkedList::insertAtFront(node_t *head, int val) {
   node_t *ins = new node_t;
   ins->data = val;
   ins->prev = nullptr;
@@ -15,7 +16,7 @@ node_t *insertAtFront(node_t *head, int val) {
 }
 
 // Time complexity: O(N) - traverse list of N nodes once, would only be O(1) if reference to tail existed
-void insertAtBack(node_t *head, int val) {
+void DoublyLinkedList::insertAtBack(node_t *head, int val) {
   node_t *ins = new node_t;
   ins->data = val;
   ins->next = nullptr;
@@ -36,8 +37,8 @@ void insertAtBack(node_t *head, int val) {
   ins->next = nullptr;
 }
 
-// Time complexity: 
-void insertAfter(node_t *head, int val, node_t *loc) {
+// Time complexity: O(N) - traverse list of N nodes once, would only be O(1) if reference to tail existed
+void DoublyLinkedList::insertAfter(node_t *head, int val, node_t *loc) {
   node_t *ins = new node_t;
   ins->data = val;
 
@@ -63,8 +64,8 @@ void insertAfter(node_t *head, int val, node_t *loc) {
   cur->next = ins;
 }
 
-// Time complexity: 
-node_t *deleteFront(node_t *head) {
+// Time complexity: O(1) - constant deletion (no traversal
+node_t* DoublyLinkedList::deleteFront(node_t *head) {
   if (head == nullptr) {
     return nullptr;
   }
@@ -79,8 +80,8 @@ node_t *deleteFront(node_t *head) {
   return head;
 }
 
-// Time complexity: 
-void deleteBack(node_t *head) {
+// Time complexity: O(N) - traverse list of N nodes once, would only be O(1) if reference to tail existed
+void DoublyLinkedList::deleteBack(node_t *head) {
   if (head == nullptr) {
     return;
   }
@@ -98,8 +99,8 @@ void deleteBack(node_t *head) {
   }
 }
 
-// Time complexity: 
-node_t *deleteNode(node_t *head, node_t *loc) {
+// Time complexity: O(N) - traverse list of N nodes once
+node_t* DoublyLinkedList::deleteNode(node_t *head, node_t *loc) {
   if (head == nullptr) {
     return nullptr;
   }
@@ -131,7 +132,7 @@ node_t *deleteNode(node_t *head, node_t *loc) {
 
 // Time complexity: O(N) - traverse list of N nodes and increment count until
 // cur == nullptr
-int length(node_t *head) {
+int DoublyLinkedList::length(node_t *head) {
   if (head == nullptr) {
     return 0;
   }
@@ -147,7 +148,7 @@ int length(node_t *head) {
 
 // Time complexity: O(N) - traverse list of N nodes only once, modifying
 // pointers to nodes at each iteration
-node_t *reverseIterative(node_t *head) {
+node_t* DoublyLinkedList::reverseIterative(node_t *head) {
   if (head == nullptr) {
     return nullptr;
   }
@@ -169,4 +170,19 @@ node_t *reverseIterative(node_t *head) {
 
 // reverses the linked list recursively (Hint:
 // you will need a helper function)
-node_t *reverseRecursive(node_t *head);
+node_t* DoublyLinkedList::reverseRecursive(node_t *head) {
+  return nullptr;
+}
+
+void DoublyLinkedList::printList(node_t *head) {
+  if (head == nullptr) {
+    cout << "List is empty" << endl;
+    return;
+  }
+  node_t *temp = head;
+  while (temp != nullptr) {
+    cout << temp->data << " ";
+    temp = temp->next;
+  }
+  cout << endl;
+}

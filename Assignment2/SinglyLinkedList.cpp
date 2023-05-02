@@ -1,9 +1,10 @@
+#include "SinglyLinkedList.hpp"
 #include <iostream>
 using namespace std;
 
 
 // Time complexity: O(1) - constant time taken for insertion
-node_t *insertAtFront(node_t *head, int val) {
+node_t* SinglyLinkedList::insertAtFront(node_t *head, int val) {
   node_t *ins = new node_t;
   ins->data = val;
   ins->next = head;
@@ -12,7 +13,7 @@ node_t *insertAtFront(node_t *head, int val) {
 
 // Time complexity: O(N) - entire list of N nodes traversed, insertion in
 // constant time
-void insertAtBack(node_t *head, int val) {
+void SinglyLinkedList::insertAtBack(node_t *head, int val) {
   node_t *ins = new node_t;
   ins->data = val;
   ins->next = nullptr;
@@ -30,7 +31,7 @@ void insertAtBack(node_t *head, int val) {
 
 // Time complexity: O(1) - reference to node loc already exists, constant time
 // for insertion
-void insertAfter(node_t *head, int val, node_t *loc) {
+void SinglyLinkedList::insertAfter(node_t *head, int val, node_t *loc) {
   if (loc == nullptr) {
     return;
   }
@@ -44,7 +45,7 @@ void insertAfter(node_t *head, int val, node_t *loc) {
 
 // Time complexity: O(1) - constant time for head deletion since reference
 // already exists
-node_t *deleteFront(node_t *head) {
+node_t* SinglyLinkedList::deleteFront(node_t *head) {
   if (head == nullptr) {
     return nullptr;
   }
@@ -56,7 +57,7 @@ node_t *deleteFront(node_t *head) {
 
 // Time complexity: O(N) - traverse entire list of N nodes to N-1 index,
 // constant time for deletion
-void deleteBack(node_t *head) {
+void SinglyLinkedList::deleteBack(node_t *head) {
   if (head == nullptr) {
     return;
   }
@@ -75,7 +76,7 @@ void deleteBack(node_t *head) {
 
 // Time complexity: O(N) - traverse entire list of N nodes to locate and delete
 // node loc
-node_t *deleteNode(node_t *head, node_t *loc) {
+node_t* SinglyLinkedList::deleteNode(node_t *head, node_t *loc) {
   if (head == nullptr) {
     return nullptr;
   }
@@ -100,7 +101,7 @@ node_t *deleteNode(node_t *head, node_t *loc) {
 
 // Time complexity: O(N) - traverse list of N nodes and increment count until
 // cur == nullptr
-int length(node_t *head) {
+int SinglyLinkedList::length(node_t *head) {
   if (head == nullptr) {
     return 0;
   }
@@ -116,7 +117,7 @@ int length(node_t *head) {
 
 // Time complexity: O(N) - traverse list of N nodes only once, modifying
 // pointers to nodes at each iteration
-node_t *reverseIterative(node_t *head) {
+node_t* SinglyLinkedList::reverseIterative(node_t *head) {
   if (head == nullptr) {
     return nullptr;
   }
@@ -132,7 +133,23 @@ node_t *reverseIterative(node_t *head) {
   }
   return prev;
 }
-
 // reverses the linked list recursively (Hint:
 // you will need a helper function)
-node_t *reverseRecursive(node_t *head);
+node_t* SinglyLinkedList::reverseRecursive(node_t *head)
+{
+  return nullptr;
+}
+
+
+void SinglyLinkedList::printList(node_t *head) {
+  if (head == nullptr) {
+    cout << "List is empty" << endl;
+    return;
+  }
+  node_t *temp = head;
+  while (temp != nullptr) {
+    cout << temp->data << " ";
+    temp = temp->next;
+  }
+  cout << endl;
+}
