@@ -1,10 +1,6 @@
 #include <iostream>
 using namespace std;
 
-typedef struct node {
-  int data;
-  struct node *next;
-} node_t;
 
 // Time complexity: O(1) - constant time taken for insertion
 node_t *insertAtFront(node_t *head, int val) {
