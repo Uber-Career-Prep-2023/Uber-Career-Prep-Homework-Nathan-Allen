@@ -1,5 +1,5 @@
 // Given a binary tree, create a deep copy. Return the root of the new tree
-// Approach: Recursion
+// Approach: Recursive preorder traversal
 // Time complexity: O(n)
 // Space complexity: O(n)
 
