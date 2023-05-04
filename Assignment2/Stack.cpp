@@ -28,6 +28,7 @@ class Stack {
             ins->next = top;
             top = ins;
         }
+        
         // Time complexity: O(1) - constant time for deletion
         int pop() {
             if (top == nullptr) {

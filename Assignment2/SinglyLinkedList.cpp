@@ -137,7 +137,17 @@ node_t* SinglyLinkedList::reverseIterative(node_t *head) {
 // you will need a helper function)
 node_t* SinglyLinkedList::reverseRecursive(node_t *head)
 {
-  return nullptr;
+  if (head == nullptr) {
+    return nullptr;
+  }
+  if (head->next == nullptr) {
+    return head;
+  } else {
+    node_t *temp = reverseRecursive(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+    return temp;
+}
 }
 
 
@@ -152,4 +162,21 @@ void SinglyLinkedList::printList(node_t *head) {
     temp = temp->next;
   }
   cout << endl;
+}
+
+// Time complexity: O(N) - traverse list of N nodes only once, modifying
+node_t* reverseRecursive(node_t* head)
+{
+  if (head == nullptr) {
+    return nullptr;
+  }
+  if (head->next == nullptr) {
+    return head;
+  } else {
+    node_t *temp = reverseRecursive(head->next);
+    head->next->next = head;
+    head->next = nullptr;
+    return temp;
+  }
+    
 }
