@@ -2,7 +2,7 @@
 // Approach: Depth first search - In order traversal
 // Time complexity: O(n)
 
-// Time taken: ~40 minutes
+// Time taken: ~30 minutes
 
 
 
@@ -13,13 +13,17 @@ using namespace std;
 
 bool isBST(node_t* root)
 {
+    // prev is static so that it retains its value across function calls
     node_t* prev = nullptr;
     if (root == nullptr) {
         return true;
     }
+    // If left subtree is not a BST, then it is not a BST
     if ((isBST(root->left)) == false) {
         return false;
     }
+    
+    // If current node is smaller than the previous node, then it is not a BST
     if (prev != nullptr && root->val <= prev->val) {
         return false;
     }

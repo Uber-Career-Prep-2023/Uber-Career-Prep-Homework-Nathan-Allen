@@ -102,7 +102,14 @@ public:
     }
   }
   // Time complexity: O(n)
-  int deleteNode(int val);
+  // I need to re-attempt this, with a helper function
+  int deleteNode(int val)
+  {
+    if (root == nullptr)
+    {
+      return 0;
+    }
+  }
 
 
   // all functions below for test case purposes
