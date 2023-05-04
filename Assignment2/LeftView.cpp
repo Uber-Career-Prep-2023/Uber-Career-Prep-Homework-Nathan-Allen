@@ -3,8 +3,8 @@
 // At every level of tree, it's intuitive that the first node is the leftmost node, regardless of whether it's the left/right child of its parent node
 // Time complexity: O(N)
 
-// Time taken: 30 minutes
-// unsure of whether 
+// Time taken: 20 minutes
+
 
 #include <iostream>
 #include <queue>
