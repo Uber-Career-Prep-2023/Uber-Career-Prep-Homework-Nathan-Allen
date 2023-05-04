@@ -13,47 +13,44 @@ using namespace std;
 
 bool isBST(node_t* root)
 {
-    // prev is static so that it retains its value across function calls
-    node_t* prev = nullptr;
     if (root == nullptr) {
         return true;
     }
-    // If left subtree is not a BST, then it is not a BST
-    if ((isBST(root->left)) == false) {
-        return false;
+    if (root->left != nullptr) {
+        if (root->left->val > root->val) {
+            return false;
+        }
     }
-    
-    // If current node is smaller than the previous node, then it is not a BST
-    if (prev != nullptr && root->val <= prev->val) {
-        return false;
+    if (root->right != nullptr) {
+        if (root->right->val < root->val) {
+            return false;
+        }
     }
-    prev = root;
-    return isBST(root->right);
+    return isBST(root->left) && isBST(root->right);
 }
 
 int main()
 {
+    // constructing two binary trees to compare output: an "incorrect" and correct tree structure
     BinarySearchTree bst, bst2;
-    bst.insert(9);
-    bst.insert(3);
-    bst.insert(12);
-    bst.insert(2);
-    bst.insert(10);
-    bst.insert(17);
-    bst.insert(20);
+    node_t* root = bst.createNode(7);
+    root->left = bst.createNode(10);
+    root->right = bst.createNode(5);
+    root->left->left = bst.createNode(8);
+    root->right->right = bst.createNode(12);
+    root->left->left->right = bst.createNode(15);
+    root->right->right->left = bst.createNode(11);
+    
+    cout << "Valid BST: " << isBST(root) << endl;
+    // outputs 0 (false)
+    node_t* root2 = bst2.createNode(1);
+    root->left = bst2.createNode(2);
+    root->right = bst2.createNode(3);
+    root->left->left = bst2.createNode(4);
+    root->left->right = bst2.createNode(5);
+    root->right->left = bst2.createNode(6);
+    
+    cout << "Valid BST: " << isBST(root2) << endl;
+    // outputs 1 (true)
 
-    cout << isBST(bst.getRoot()) << endl;
-    // outputs true
-
-    bst2.insert(9);
-    bst2.insert(9);
-    bst2.insert(9);
-    bst2.insert(9);
-    bst2.insert(9);
-    bst2.insert(9);
-    bst2.insert(9);
-
-    cout << isBST(bst2.getRoot()) << endl;
-    // outputs true
-    return 0;
 }

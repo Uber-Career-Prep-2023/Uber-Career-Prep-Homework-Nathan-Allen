@@ -109,6 +109,9 @@ public:
     {
       return 0;
     }
+    else{
+      // TO-DO
+    }
   }
 
 
@@ -143,5 +146,14 @@ public:
 
   void setRoot(node_t* ptr) {
     root = ptr;
+  }
+
+  node_t* createNode(int val)
+  {
+    node_t* cur = new node_t;
+    cur->val = val;
+    cur->left = nullptr;
+    cur->right = nullptr;
+    return cur;
   }
 };

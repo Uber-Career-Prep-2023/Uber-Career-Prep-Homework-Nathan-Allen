@@ -47,18 +47,18 @@ vector<int> LeftView(node_t* root)
 int main()
 {
     BinarySearchTree bst;
-    bst.insert(40);
-    bst.insert(30);
-    bst.insert(50);
-    bst.insert(25);
-    bst.insert(35);
-    bst.insert(45);
-    bst.insert(60);
+    node_t* root = bst.createNode(7);
+    root->left = bst.createNode(8);
+    root->right = bst.createNode(3);
+    root->right->left = bst.createNode(9);
+    root->right->right = bst.createNode(13);
+    root->right->left->left = bst.createNode(20);
+    root->right->right->left = bst.createNode(14);
+    root->right->right->left->right = bst.createNode(15);
 
-    vector<int> res = LeftView(bst.getRoot());
+    vector<int> res = LeftView(root);
     for (int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    cout << res[i] << " ";
     }
-    // outputs 40, 30, 25 for a complete binary tree
-    return 0;
+    // outputs 7 8 9 20 15
 }
