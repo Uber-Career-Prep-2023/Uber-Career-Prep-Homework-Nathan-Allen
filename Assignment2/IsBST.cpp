@@ -1,5 +1,7 @@
 // Given a binary tree, determine if it is a binary search tree.
 // Approach: Depth first search - In order traversal
+// In order traversal of a BST will always be in ascending order, so recursively check for ascending order between current and previous node
+
 // Time complexity: O(n)
 
 // Time taken: ~30 minutes
@@ -10,24 +12,30 @@
 #include "BinarySearchTree.hpp"
 using namespace std;
 
-
-bool isBST(node_t* root)
+bool helper(node_t* root, int& prev)
 {
     if (root == nullptr) {
         return true;
     }
-    if (root->left != nullptr) {
-        if (root->left->val > root->val) {
-            return false;
-        }
+
+    if (!helper(root->left, prev)) {
+        return false;
     }
-    if (root->right != nullptr) {
-        if (root->right->val < root->val) {
-            return false;
-        }
+
+    if (root->val <= prev) {
+        return false;
     }
-    return isBST(root->left) && isBST(root->right);
+
+    prev = root->val;
+
+    return helper(root->right, prev);
 }
+bool isBST(node_t* root)
+{
+    int prev = -1;
+    return helper(root, prev);
+}
+
 
 int main()
 {
