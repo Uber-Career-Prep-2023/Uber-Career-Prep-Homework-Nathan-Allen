@@ -60,7 +60,31 @@ bool bfs(int target, map<int, set<int>> graph)
 // DFS traversal
 bool dfs(int target, map<int, set<int>> graph)
 {
-    
+    set<int> visited;
+    stack<int> stack;
+
+    stack.push(target);
+
+    while (!stack.empty()) {
+        int current = stack.top();
+        stack.pop();
+
+        if (visited.count(current) > 0) {
+            continue;
+        }
+
+        visited.insert(current);
+
+        // Add unvisited neighbors to the stack
+        for (int neighbor : graph[current]) {
+            if (visited.count(neighbor) == 0) {
+                stack.push(neighbor);
+            }
+        }
+    }
+
+    // Determine if the target was found during the traversal
+    return visited.count(target) > 0;
 }
 
 
