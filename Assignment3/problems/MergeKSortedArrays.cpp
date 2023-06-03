@@ -50,7 +50,6 @@ vector<int> mergeKSortedArrays(int k, vector<vector<int>>& nums)
                 }
             }
         }
-
         
     }
     return res;
