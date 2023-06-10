@@ -11,8 +11,6 @@
 // Space complexity: O(V + E)
 // Time taken: 30 minutes
 
-
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,7 +28,7 @@ void dfs(unordered_map<string, vector<string>>& graph, string course, vector<str
             dfs(graph, prereq, s, visited);
         }
     }
-
+    // Push the course onto the vector after all its prerequisities have been explored
     s.push_back(course);
 }
 
@@ -60,6 +58,7 @@ vector<string> findOrder(vector<string>& courses, unordered_map<string, vector<s
         }
     }
 
+    // Reverse the vector to get the topological sort, which is the order of courses
     reverse(res.begin(), res.end());
     return res;
 }

@@ -26,16 +26,19 @@
 
 using namespace std;
 
+// helper function to build graph using vector of tuples
 unordered_map<string, vector<pair<string, string>>> buildGraph(vector<tuple<string, string, string>> edges)
 {
     unordered_map<string, vector<pair<string, string>>> graph;
 
     for (int i = 0; i < edges.size(); i++)
     {
+        // get<n> gets the nth element of the tuple
         string origin = get<0>(edges[i]);
         string destination = get<1>(edges[i]);
         string color = get<2>(edges[i]);
 
+        // add the destination and color to the vector of pairs for the origin
         graph[origin].push_back(make_pair(destination, color));
     }
 
@@ -44,8 +47,8 @@ unordered_map<string, vector<pair<string, string>>> buildGraph(vector<tuple<stri
 
 int AlternatingPath(vector<tuple<string, string, string>> edges, string origin, string destination)
 {
+    // build the graph
     unordered_map<string, vector<pair<string, string>>> graph = buildGraph(edges);
-
     queue<tuple<string, string, int>> q;
     q.push(make_tuple(origin, "", 0));
 
@@ -59,11 +62,14 @@ int AlternatingPath(vector<tuple<string, string, string>> edges, string origin, 
         string currColor = get<1>(curr);
         int currDist = get<2>(curr);
 
+        // if the current city is the destination, return the distance
         if (currCity == destination)
         {
             return currDist;
         }
 
+        // for each neighbor of the current city, if the color of the edge that led to the neighbor is different 
+        // from the color of the edge that led to the current city
         for (int i = 0; i < graph[currCity].size(); i++)
         {
             string neighbor = graph[currCity][i].first;
@@ -71,6 +77,7 @@ int AlternatingPath(vector<tuple<string, string, string>> edges, string origin, 
 
             if (neighborColor != currColor)
             {
+                // enqueue the tuple of neighbor, color and distance from origin + 1
                 q.push(make_tuple(neighbor, neighborColor, currDist + 1));
             }
         }

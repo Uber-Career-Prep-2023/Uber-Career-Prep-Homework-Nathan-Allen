@@ -21,15 +21,16 @@
 
 using namespace std;
 
-
-
 // DFS helper function
 void dfs(string town, unordered_map<string, vector<string>>& graph, map<string, bool>& visited) {
     if (visited[town] == true) {
         return;
     }
 
+    // Mark the current town as visited
     visited[town] = true;
+    
+    // Recursively call dfs on each neighbor of the current town
     for (auto neighbor : graph[town]) {
         if (visited[neighbor] == false) {
             dfs(neighbor, graph, visited);
@@ -51,6 +52,8 @@ int roadNetworks(vector<string> towns, vector<pair<string, string>> roads) {
     
     for (auto town : graph) {
         if (visited[town.first] == false) {
+            // Perform DFS on the current town, incrementing the counter only on return
+            // to indicate that the current town is not connected to any other town
             dfs(town.first, graph, visited);
             counter++;
         }

@@ -21,7 +21,9 @@ using namespace std;
 vector<int> mergeKSortedArrays(int k, vector<vector<int>>& nums)
 {
     vector<int> res;
-    priority_queue <int, vector<int>, greater<int>> min;
+
+    // Min heap implementation using priority queue
+    priority_queue<int, vector<int>, greater<int>> min;
     for (int i = 0; i < k; i++)
     {   
         if (nums[i].size() > 0)
@@ -39,6 +41,7 @@ vector<int> mergeKSortedArrays(int k, vector<vector<int>>& nums)
         for (int i = 0; i < k; i++)
         {
             // If the array is not empty and the first element is equal to the min value, pop the first element
+            // from the array
             if (nums[i].size() > 0 && nums[i][0] == minVal)
             {
                 nums[i].erase(nums[i].begin());

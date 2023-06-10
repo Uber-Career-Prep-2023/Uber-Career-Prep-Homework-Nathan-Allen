@@ -25,17 +25,23 @@ string reverseWords(string& input)
     string res = "";
 
     for (int i = 0; i < input.length(); i++) {
+
+        // if a space is encountered, push the placeholder string to the stack
+        // and reset the placeholder string
         if (input[i] == ' ') {
             words.push(res);
             res = "";
         }
         else {
+        // otherwise, add the current character to the placeholder string
             res += input[i];
         }
     }
+    // push the last word to the stack
     words.push(res);
     res = "";
-
+    
+    // reverse the order of the words by popping from the stack
     while (!words.empty()) {
         res += words.top();
         res += " ";
